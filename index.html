@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="main.js">
+    <title>workupdates</title>
+    
+</head>
+<body>
+   
+    <div class="workupdates">
+        <h1>pandaads</h1>
+        <form method="POST" autocomplete="off" name="google-sheet">
+        <div class="textbox">
+            
+            <input type="date" placeholder="SPECIAL DAY" />
+            
+        </div>
+        <div class="textbox">
+            
+            <input type="text" name="Client" placeholder="CLIENT" required>
+        </div>
+        <div class="textbox">
+            <input type="text" name="Day observation" placeholder="DAY OBSERVATION" required>
+        </div>
+        <div class="textbox">
+            <input type="date" placeholder="POSTED" />
+            
+        </div>
+        <div class="textbox">
+            <label for="disabledSelect"></label>
+            <select id="disabledSelect" name="Designer" class="textbox">
+              <option>select</option>
+              <option>SUHAD</option>
+              <option>MASHOOD</option>
+              <option>ASHKAR</option>
+              <option>SEMI</option>
+              <option>KUKKU</option>
+              <option>NAKASH</option>
+              <option>SULFI</option>
+            </select required>
+          </div>
+        <button type="submit" class="btn" id="sumbit">Submit</button>
+    </form>
+
+    </div>
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbz9Xcnru2k4LkRWKuVcnYjlDve69InYWd7QcHyZwb4IzNJSM-PT/exec'
+        const form = document.forms['google-sheet']
+      
+        form.addEventListener('submit', e => {
+          e.preventDefault()
+          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => alert("work updated successfully"))
+            .catch(error => console.error('Error!', error.message))
+        })
+      </script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</body>
+</html>
